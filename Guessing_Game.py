@@ -2,7 +2,8 @@
 import random
 # Imports os
 import os
-
+# Import Time
+import time
 
 # global     
 random_list = ["Tomato", "Classroom", "Cheetos", "Lamp", "Car", "Boat"]
@@ -14,19 +15,36 @@ def main():
     #Prints Main Stuff
     print("------------------------------")
     print("Welcome To Guessing Game!\n")
-    print("Your Given 6 Opitons you must guess which one is Correct!\n")
-    print("With Only 3 Tries\n")
+    print("You have 6 options. Guess the correct one!\n")
+    print("With Only 3 Tries")
     print("------------------------------")
     # Waits for User Input to Continue
-    input("Click Any Key To Continue")
+    input("Click Any Key To Continue ")
     # Clears the terminal
     os.system('cls')
     
+    # Time info
+    print("Do you want to add a timer? ")
+    answer = input("Yes/No? ")
+    while answer not in ["Yes", "No"]:
+        print("Invalid input. Please type Yes or No.")
+        answer = input("Type Yes or No: ")
+    if answer == "No":
+        # Exit the loop without executing further code
+        print("Continuing with the program...")
+        os.system('cls')
+    else:
+        # Code to execute if answer is "Yes"
+        print("Continuing with the program...")
+       # print("Going to time options...")
+       # put mod details here
+        os.system("cls")
+        
+        
+    
     random.shuffle(random_list)
     print("Your Hints are..." + str(random.sample(random_list, len(random_list))))
-    
     input("Click Any Key To Continue")
-    os.system("cls")
     
     # Goes to Game Function
     game()
@@ -69,5 +87,5 @@ def PlayAgain():
         main()
     else:
         exit()
-
+    
 main()
