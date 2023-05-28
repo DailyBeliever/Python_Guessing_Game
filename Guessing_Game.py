@@ -5,12 +5,17 @@ import os
 # Import Time
 import time
 
-# global     
+# Global     
 random_list = ["Tomato", "Classroom", "Cheetos", "Lamp", "Car", "Boat"]
+seconds = 1
 
 # This takes the list and randoms it and assigns it to the var of "secret_word"
 secret_word = random.choice(random_list)
 
+
+"""
+Main  Function
+"""
 def main():
     #Prints Main Stuff
     print("------------------------------")
@@ -23,6 +28,13 @@ def main():
     # Clears the terminal
     os.system('cls')
     
+    # Goes to Timer Function
+    ask_for_timer()
+    
+"""
+Ask For Timer Function
+"""
+def ask_for_timer():
     # Time info
     print("Do you want to add a timer? ")
     answer = input("Yes/No? ")
@@ -31,31 +43,40 @@ def main():
         answer = input("Type Yes or No: ")
     if answer == "No":
         # Exit the loop without executing further code
-        print("Continuing with the program...")
         os.system('cls')
+        print("Feature will be added soon...")
+        print("Continuing with the program...")
+        input("Click Any Key To Continue ")   
+        os.system('cls')
+            # Goes to Game Function
+        game()
     else:
         # Code to execute if answer is "Yes"
+        os.system('cls')
+        print("Feature will be added soon...")
         print("Continuing with the program...")
+        input("Click Any Key To Continue ")   
        # print("Going to time options...")
        # put mod details here
         os.system("cls")
+        # Goes to Game Function
+        game()
         
-        
-    
-    random.shuffle(random_list)
-    print("Your Hints are..." + str(random.sample(random_list, len(random_list))))
-    input("Click Any Key To Continue")
-    
-    # Goes to Game Function
-    game()
-
+"""
+Game  Function
+"""
 def game():
-    # Variables
+    # Local Variables
     # This is the secret word | Remember this is a list! | Each must seperated
     guess_count = 0
     guess_limit = 3
     out_of_guesses = False
     guess = ""
+
+    # Prints the Hints
+    random.shuffle(random_list)
+    print("Your Hints are..." + str(random.sample(random_list, len(random_list))))
+    input("Click Any Key To Continue ")   
     
 # guess is not equal to secret_word do this..
     while guess != secret_word and not(out_of_guesses):
@@ -73,6 +94,9 @@ def game():
         print("You Win!")
         PlayAgain()
 
+"""
+Play Again Function
+"""
 # Last Function if you want to exit or play again!
 def PlayAgain():
     print("Would you like to play again?")
@@ -84,8 +108,10 @@ def PlayAgain():
         # Reprints to Screen
         answer = input("Type Yes or No: ")
     if answer == "Yes":
+        os.system('cls')
         main()
     else:
-        exit()
-    
+        os.sys.exit()
+  
 main()
+
